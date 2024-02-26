@@ -3,9 +3,9 @@ with open('scientists.txt', 'r', encoding='utf8') as file:
     s = file.readlines()[1:]
     for i in range(len(s)):
         s[i] = s[i].split('#')
+    # Аллопуринол
     allopur = []
     for i in s:
-        print(i)
         if i[1] == 'Аллопуринол':
             allopur.append([i[2], i[0]])
     allopur = sorted(allopur)
@@ -13,6 +13,12 @@ with open('scientists.txt', 'r', encoding='utf8') as file:
     for _ in allopur:
         print(f'{_[1]} - {_[0]}')
     print(f'Оригинальный рецепт принадлежит: {allopur[0][1]}')
-    
-
-
+    # Сортировка файла на оригинальные работы учёных
+    na = set()
+    for i in s:
+        na.add([i[1], i[2]])
+    sa = []
+    for a in na:
+        for i in s:
+            if i[1] == a[1]:
+                sa.append(i)

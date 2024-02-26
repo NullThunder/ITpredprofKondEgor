@@ -1,0 +1,18 @@
+s = []
+with open('scientists.txt', 'r', encoding='utf8') as file:
+    s = file.readlines()[1:]
+    for i in range(len(s)):
+        s[i] = s[i].split('#')
+    allopur = []
+    for i in s:
+        print(i)
+        if i[1] == 'Аллопуринол':
+            allopur.append([i[2], i[0]])
+    allopur = sorted(allopur)
+    print('Разработчиками Аллопуринола были такие люди:')
+    for _ in allopur:
+        print(f'{_[1]} - {_[0]}')
+    print(f'Оригинальный рецепт принадлежит: {allopur[0][1]}')
+    
+
+
